@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom"
-import Hideouts from "./pages/Hideouts"
+import Hideouts from "./Containers/Hideouts"
 
 const routes = [{ path: "/hideouts", component: Hideouts, exact: true }]
 

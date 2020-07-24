@@ -1,7 +1,7 @@
 import React, { Component } from "react"
-import Layout from "../hoc/Layout"
-import Loading from "../hoc/Loading"
-import { findAll } from "../services/hideouts"
+import Layout from "../Layout"
+import Loading from "../../Components/Loading"
+import findAll from "../../Services/Hideouts/findAll"
 
 class Hideouts extends Component {
   state = {
@@ -15,14 +15,14 @@ class Hideouts extends Component {
     })
   }
 
+  renderData = () =>
+    this.state.data.map((item) => <div key={item.id}>{item.title}</div>)
+
   render() {
+    const { loading } = this.state
     return (
       <Layout>
-        <Loading state={this.state.loading}>
-          {this.state.data.map((item) => (
-            <div key={item.id}>{item.title}</div>
-          ))}
-        </Loading>
+        <Loading state={loading}>{this.renderData()}</Loading>
       </Layout>
     )
   }
